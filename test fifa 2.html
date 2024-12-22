@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test FIFA TM Calcio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+            color: #333;
+        }
+        h1 {
+            color: #0056b3;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+        input, select {
+            margin-bottom: 15px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Test FIFA TM Calcio</h1>
+    <form id="fifaForm">
+        <label>1. In quale categoria di calcio giochi?</label>
+        <select id="category">
+            <option value="Professionismo">Professionismo</option>
+            <option value="Serie D">Serie D</option>
+            <option value="Eccellenza">Eccellenza</option>
+            <option value="Promozione">Promozione</option>
+            <option value="Amatoriale">Amatoriale</option>
+        </select>
+
+        <label>2. Qual è il ruolo principale che ricopri in campo?</label>
+        <input type="text" id="role" placeholder="Es. Centrocampista Centrale">
+
+        <label>3. Quanti anni hai?</label>
+        <select id="age">
+            <option value=">41">Più di 41</option>
+            <option value="31-40">31-40</option>
+            <option value="21-30">21-30</option>
+            <option value="<20">Meno di 20</option>
+        </select>
+
+        <!-- Domande 4-18 -->
+        <label>4. Hai subito infortuni NELL’ULTIMO ANNO?</label>
+        <label><input type="radio" name="injuryLastYear" value="Sì"> Sì</label>
+        <label><input type="radio" name="injuryLastYear" value="No"> No</label>
+
+        <label>5. Hai subito infortuni NEGLI ULTIMI 5 ANNI?</label>
+        <label><input type="radio" name="injuryLast5Years" value="Sì"> Sì</label>
+        <label><input type="radio" name="injuryLast5Years" value="No"> No</label>
+
+        <label>6. Hai subito OPERAZIONI CHIRURGICHE negli ultimi 5 anni?</label>
+        <label><input type="radio" name="surgery" value="Sì"> Sì</label>
+        <label><input type="radio" name="surgery" value="No"> No</label>
+
+        <label>7. Senti costantemente DOLORE o RIGIDITÀ in una parte del tuo corpo?</label>
+        <label><input type="radio" name="pain" value="Sì"> Sì</label>
+        <label><input type="radio" name="pain" value="No"> No</label>
+
+        <label>8. A volte prendi FARMACI ANTIDOLORIFICI?</label>
+        <label><input type="radio" name="painkillers" value="Sì"> Sì</label>
+        <label><input type="radio" name="painkillers" value="No"> No</label>
+
+        <label>9. Durante i tuoi allenamenti, fai esercizi per i QUADRICIPITI in appoggio SU UNA GAMBA SOLA?</label>
+        <label><input type="radio" name="quadExercises" value="Sì"> Sì</label>
+        <label><input type="radio" name="quadExercises" value="No"> No</label>
+
+        <label>10. Durante i tuoi allenamenti, fai esercizi per i FEMORALI in appoggio SU UNA GAMBA SOLA?</label>
+        <label><input type="radio" name="hamstringExercises" value="Sì"> Sì</label>
+        <label><input type="radio" name="hamstringExercises" value="No"> No</label>
+
+        <label>11. Durante i tuoi allenamenti, fai esercizi per i POLPACCI in appoggio SU UNA GAMBA SOLA?</label>
+        <label><input type="radio" name="calfExercises" value="Sì"> Sì</label>
+        <label><input type="radio" name="calfExercises" value="No"> No</label>
+
+        <label>12. Durante i tuoi allenamenti, fai esercizi per ADDOME, GLUTEI e SCHIENA in isometria?</label>
+        <label><input type="radio" name="coreExercises" value="Sì"> Sì</label>
+        <label><input type="radio" name="coreExercises" value="No"> No</label>
+
+        <label>13. Tenendo le ginocchia stese, riesci a TOCCARTI LA PUNTA DEI PIEDI con le mani?</label>
+        <label><input type="radio" name="flexibility" value="Sì"> Sì</label>
+        <label><input type="radio" name="flexibility" value="No"> No</label>
+
+        <label>14. Durante i tuoi allenamenti, fai esercitazioni dedicate alla tecnica di SALTO ed ATTERRAGGIO su una gamba?</label>
+        <label><input type="radio" name="jumping" value="Sì"> Sì</label>
+        <label><input type="radio" name="jumping" value="No"> No</label>
+
+        <label>15. Durante i tuoi allenamenti, fai esercitazioni dedicate al miglioramento di SCATTI, ACCELERAZIONI e DECELERAZIONI?</label>
+        <label><input type="radio" name="sprinting" value="Sì"> Sì</label>
+        <label><input type="radio" name="sprinting" value="No"> No</label>
+
+        <label>16. Durante i tuoi allenamenti, fai esercitazioni dedicate allo sviluppo dell’EQUILIBRIO in appoggio su una gamba sola?</label>
+        <label><input type="radio" name="balance" value="Sì"> Sì</label>
+        <label><input type="radio" name="balance" value="No"> No</label>
+
+        <label>17. Durante la settimana, fai almeno 5 ALLENAMENTI (senza contare la partita)?</label>
+        <label><input type="radio" name="trainingFrequency" value="Sì"> Sì</label>
+        <label><input type="radio" name="trainingFrequency" value="No"> No</label>
+
+        <label>18. Sei seguito da un FISIOTERAPISTA SPECIALIZZATO NEL CALCIO?</label>
+        <label><input type="radio" name="physiotherapist" value="Sì"> Sì</label>
+        <label><input type="radio" name="physiotherapist" value="No"> No</label>
+
+        <button type="button" onclick="calculateRisk()">Invia Risposte</button>
+    </form>
+
+    <div id="result">
+        <h2>Risultato</h2>
+        <p id="analysis"></p>
+    </div>
+
+    <script>
+        function calculateRisk() {
+            let score = 0;
+
+            const weights = {
+                injuryLastYear: 3,
+                injuryLast5Years: 2,
+                surgery: 4,
+                pain: 3,
+                painkillers: 2,
+                quadExercises: -1,
+                hamstringExercises: -1,
+                calfExercises: -1,
+                coreExercises: -2,
+                flexibility: -1,
+                jumping: -1,
+                sprinting: -2,
+                balance: -2,
+                trainingFrequency: -2,
+                physiotherapist: -3
+            };
+
+            for (let key in weights) {
+                const response = document.querySelector(`input[name="${key}"]:checked`);
+                if (response && response.value === 'Sì') {
+                    score += weights[key];
+                }
+            }
+
+            let risk, advice;
+            if (score >= 10) {
+                risk = "Alto";
+                advice = "Consulta un fisioterapista per prevenire infortuni e migliorare le tue performance.";
+            } else if (score >= 5) {
+                risk = "Moderato";
+                advice = "Aggiungi esercizi di prevenzione e migliora la flessibilità.";
+            } else {
+                risk = "Basso";
+                advice = "Continua così! Mantieni la tua routine e monitora i progressi.";
+            }
+
+            document.getElementById('analysis').innerHTML = `
+                <strong>Livello di rischio:</strong> ${risk}<br>
+                <strong>Consigli:</strong> ${advice}
+            `;
+        }
+    </script>
+</body>
+</html>

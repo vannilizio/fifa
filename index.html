@@ -60,5 +60,92 @@ Sì
 No
 Invia Risposte
 Risultato
+/* Stile generale */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+}
+
+h1 {
+    text-align: center;
+    color: #0056b3;
+}
+
+form {
+    max-width: 600px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #004494;
+}
+
+#results {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+document.getElementById('submitBtn').addEventListener('click', function () {
+    // Ottieni le risposte dal form
+    const category = document.getElementById('category').value;
+    const role = document.getElementById('role').value || "Non specificato";
+    const age = document.getElementById('age').value;
+    const injuryLastYear = document.querySelector('input[name="injuryLastYear"]:checked')?.value || "Non risposto";
+    const injuryLast5Years = document.querySelector('input[name="injuryLast5Years"]:checked')?.value || "Non risposto";
+
+    // Analisi del rischio (esempio)
+    let riskLevel = "Basso";
+    let advice = "Continua a mantenere uno stile di vita attivo e a seguire allenamenti regolari.";
+
+    if (injuryLastYear === "Sì" || injuryLast5Years === "Sì") {
+        riskLevel = "Alto";
+        advice = "Consulta un fisioterapista per una valutazione approfondita.";
+    }
+
+    // Mostra il risultato
+    const resultsDiv = document.getElementById('results');
+    const resultsContent = document.getElementById('resultsContent');
+    resultsContent.innerHTML = `
+        <strong>Categoria:</strong> ${category}<br>
+        <strong>Ruolo:</strong> ${role}<br>
+        <strong>Età:</strong> ${age}<br>
+        <strong>Livello di rischio:</strong> ${riskLevel}<br>
+        <strong>Consigli:</strong> ${advice}
+    `;
+    resultsDiv.style.display = 'block';
+});
 
 

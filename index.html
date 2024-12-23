@@ -4,53 +4,134 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test FIFA TM Calcio</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-fifa.css">
 </head>
 <body>
-    <h1>Test FIFA TM Calcio</h1>
-    <p>Rispondi semplicemente <strong>SÌ</strong> o <strong>NO</strong> alle domande sottostanti per avere una valutazione precisa del tuo stato fisico e del rischio di infortunio.</p>
-
-    <form id="fifaForm">
-        <!-- Domande -->
-        <div>
-            <label>1. In quale categoria di calcio giochi?</label>
-            <select id="category">
-                <option value="Professionismo">Professionismo (Serie A, Serie B, Lega Pro)</option>
-                <option value="Serie D">Serie D</option>
-                <option value="Eccellenza">Eccellenza</option>
-                <option value="Promozione">Promozione</option>
-                <option value="Amatoriale">Amatoriale</option>
-            </select>
+    <div class="container">
+        <header>
+            <h1>Test FIFA TM Calcio</h1>
+            <p>Rispondi alle domande per ottenere una valutazione del tuo stato fisico e rischio di infortunio.</p>
+        </header>
+        <form id="questionnaire">
+            <!-- Domanda 1 -->
+            <div class="question">
+                <label>1. In quale categoria di calcio giochi?</label>
+                <select id="category" required>
+                    <option value="Professionismo">Professionismo</option>
+                    <option value="Serie D">Serie D</option>
+                    <option value="Eccellenza">Eccellenza</option>
+                    <option value="Promozione">Promozione</option>
+                    <option value="Amatoriale">Amatoriale</option>
+                </select>
+            </div>
+            <!-- Domanda 2 -->
+            <div class="question">
+                <label>2. Qual è il ruolo principale che ricopri in campo?</label>
+                <input type="text" id="role" placeholder="Es. Centrocampista Centrale" required>
+            </div>
+            <!-- Domanda 3 -->
+            <div class="question">
+                <label>3. Quanti anni hai?</label>
+                <select id="age" required>
+                    <option value="Meno di 20">Meno di 20</option>
+                    <option value="21-30">21-30</option>
+                    <option value="31-40">31-40</option>
+                    <option value="Più di 41">Più di 41</option>
+                </select>
+            </div>
+            <!-- Domanda 4 -->
+            <div class="question">
+                <label>4. Hai subito infortuni NELL’ULTIMO ANNO?</label>
+                <label><input type="radio" name="injury_last_year" value="Sì" required> Sì</label>
+                <label><input type="radio" name="injury_last_year" value="No"> No</label>
+            </div>
+            <!-- Domanda 5 -->
+            <div class="question">
+                <label>5. Hai subito infortuni NEGLI ULTIMI 5 ANNI?</label>
+                <label><input type="radio" name="injury_last_5_years" value="Sì" required> Sì</label>
+                <label><input type="radio" name="injury_last_5_years" value="No"> No</label>
+            </div>
+            <!-- Domanda 6 -->
+            <div class="question">
+                <label>6. Hai subito OPERAZIONI CHIRURIGICHE negli ultimi 5 anni?</label>
+                <label><input type="radio" name="surgery" value="Sì" required> Sì</label>
+                <label><input type="radio" name="surgery" value="No"> No</label>
+            </div>
+            <!-- Domanda 7 -->
+            <div class="question">
+                <label>7. Senti costantemente DOLORE o RIGIDITÀ in una parte del tuo corpo?</label>
+                <label><input type="radio" name="pain" value="Sì" required> Sì</label>
+                <label><input type="radio" name="pain" value="No"> No</label>
+            </div>
+            <!-- Domanda 8 -->
+            <div class="question">
+                <label>8. A volte prendi FARMACI ANTIDOLORIFICI?</label>
+                <label><input type="radio" name="painkillers" value="Sì" required> Sì</label>
+                <label><input type="radio" name="painkillers" value="No"> No</label>
+            </div>
+            <!-- Domanda 9 -->
+            <div class="question">
+                <label>9. Durante i tuoi allenamenti, fai esercizi per i QUADRICIPITI in appoggio SU UNA GAMBA SOLA?</label>
+                <label><input type="radio" name="quads" value="Sì" required> Sì</label>
+                <label><input type="radio" name="quads" value="No"> No</label>
+            </div>
+            <!-- Domanda 10 -->
+            <div class="question">
+                <label>10. Durante i tuoi allenamenti, fai esercizi per i FEMORALI in appoggio SU UNA GAMBA SOLA?</label>
+                <label><input type="radio" name="hamstrings" value="Sì" required> Sì</label>
+                <label><input type="radio" name="hamstrings" value="No"> No</label>
+            </div>
+            <!-- Domanda 11 -->
+            <div class="question">
+                <label>11. Durante i tuoi allenamenti, fai esercizi per i POLPACCI in appoggio SU UNA GAMBA SOLA?</label>
+                <label><input type="radio" name="calves" value="Sì" required> Sì</label>
+                <label><input type="radio" name="calves" value="No"> No</label>
+            </div>
+            <!-- Domanda 12 -->
+            <div class="question">
+                <label>12. Durante i tuoi allenamenti, fai esercizi per ADDOME, GLUTEI e SCHIENA in isometria?</label>
+                <label><input type="radio" name="core" value="Sì" required> Sì</label>
+                <label><input type="radio" name="core" value="No"> No</label>
+            </div>
+            <!-- Domanda 13 -->
+            <div class="question">
+                <label>13. Tenendo le ginocchia stese, riesci a TOCCARTI LA PUNTA DEI PIEDI con le mani?</label>
+                <label><input type="radio" name="flexibility" value="Sì" required> Sì</label>
+                <label><input type="radio" name="flexibility" value="No"> No</label>
+            </div>
+            <!-- Domanda 14 -->
+            <div class="question">
+                <label>14. Durante i tuoi allenamenti, fai esercitazioni dedicate alla tecnica di SALTO ed ATTERRAGGIO su una gamba?</label>
+                <label><input type="radio" name="jumping" value="Sì" required> Sì</label>
+                <label><input type="radio" name="jumping" value="No"> No</label>
+            </div>
+            <!-- Domanda 15 -->
+            <div class="question">
+                <label>15. Durante i tuoi allenamenti, fai esercitazioni dedicate al miglioramento di SCATTI, ACCELERAZIONI e DECELERAZIONI?</label>
+                <label><input type="radio" name="sprints" value="Sì" required> Sì</label>
+                <label><input type="radio" name="sprints" value="No"> No</label>
+            </div>
+            <!-- Domanda 16 -->
+            <div class="question">
+                <label>16. Durante i tuoi allenamenti, fai esercitazioni dedicate allo sviluppo dell’EQUILIBRIO in appoggio su una gamba sola?</label>
+                <label><input type="radio" name="balance" value="Sì" required> Sì</label>
+                <label><input type="radio" name="balance" value="No"> No</label>
+            </div>
+            <!-- Domanda 17 -->
+            <div class="question">
+                <label>17. Durante la settimana, fai almeno 5 ALLENAMENTI (senza contare la partita)?</label>
+                <label><input type="radio" name="training" value="Sì" required> Sì</label>
+                <label><input type="radio" name="training" value="No"> No</label>
+            </div>
+            <div class="button-container">
+                <button type="button" onclick="calculateResult()">Invia Risposte</button>
+            </div>
+        </form>
+        <div id="result" class="hidden">
+            <h2>Risultato</h2>
+            <p id="analysis"></p>
         </div>
-
-        <div>
-            <label>2. Qual è il ruolo principale che ricopri in campo?</label>
-            <input type="text" id="role" placeholder="Es. Centrocampista Centrale">
-        </div>
-
-        <div>
-            <label>3. Quanti anni hai?</label>
-            <select id="age">
-                <option value="41+">Più di 41</option>
-                <option value="31-40">31-40</option>
-                <option value="21-30">21-30</option>
-                <option value="20-">Meno di 20</option>
-            </select>
-        </div>
-
-        <!-- Iterazione per le altre domande -->
-        <div id="questions">
-            <!-- Domande da 4 a 18 -->
-        </div>
-
-        <button type="button" id="submitBtn">Invia Risposte</button>
-    </form>
-
-    <div id="results" style="display: none;">
-        <h2>Risultato</h2>
-        <p id="resultsContent"></p>
     </div>
-
-    <script src="script.js" defer></script>
+    <script src="script-fifa.js"></script>
 </body>
 </html>

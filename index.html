@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test FIFA TM Calcio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f7;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            text-align: center;
+            color: #0056b3;
+            margin-bottom: 20px;
+        }
+        p {
+            text-align: center;
+            color: #555;
+            margin-bottom: 30px;
+        }
+        .question {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f9f9f9;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+        select, input[type="text"], input[type="radio"] {
+            margin-top: 5px;
+            margin-right: 10px;
+        }
+        select, input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        #result {
+            display: none;
+            margin-top: 30px;
+            padding: 20px;
+            background: #eaf5ff;
+            border: 1px solid #b8daff;
+            border-radius: 8px;
+        }
+        #result h2 {
+            color: #0056b3;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Test FIFA TM Calcio</h1>
+        <p>Rispondi alle domande per ottenere una valutazione del tuo stato fisico e rischio di infortunio.</p>
+        <form id="testForm">
+            <div class="question">
+                <label>1. In quale categoria di calcio giochi?</label>
+                <select id="category" required>
+                    <option value="Professionismo">Professionismo</option>
+                    <option value="Serie D">Serie D</option>
+                    <option value="Eccellenza">Eccellenza</option>
+                    <option value="Promozione">Promozione</option>
+                    <option value="Amatoriale">Amatoriale</option>
+                </select>
+            </div>
+            <div class="question">
+                <label>2. Qual è il ruolo principale che ricopri in campo?</label>
+                <input type="text" id="role" placeholder="Es. Centrocampista Centrale" required>
+            </div>
+            <div class="question">
+                <label>3. Quanti anni hai?</label>
+                <select id="age" required>
+                    <option value="Meno di 20">Meno di 20</option>
+                    <option value="21-30">21-30</option>
+                    <option value="31-40">31-40</option>
+                    <option value="Più di 41">Più di 41</option>
+                </select>
+            </div>
+            <div class="question">
+                <label>4. Hai subito infortuni NELL’ULTIMO ANNO?</label>
+                <label><input type="radio" name="question4" value="Sì" required> Sì</label>
+                <label><input type="radio" name="question4" value="No"> No</label>
+            </div>
+            <div class="question">
+                <label>5. Hai subito infortuni NEGLI ULTIMI 5 ANNI?</label>
+                <label><input type="radio" name="question5" value="Sì" required> Sì</label>
+                <label><input type="radio" name="question5" value="No"> No</label>
+            </div>
+            <div class="question">
+                <label>6. Hai subito OPERAZIONI CHIRURGICHE negli ultimi 5 anni?</label>
+                <label><input type="radio" name="question6" value="Sì" required> Sì</label>
+                <label><input type="radio" name="question6" value="No"> No</label>
+            </div>
+            <div class="question">
+                <label>7. Senti costantemente DOLORE o RIGIDITÀ in una parte del tuo corpo?</label>
+                <label><input type="radio" name="question7" value="Sì" required> Sì</label>
+                <label><input type="radio" name="question7" value="No"> No</label>
+            </div>
+            <div class="question">
+                <label>8. A volte prendi FARMACI ANTIDOLORIFICI?</label>
+                <label><input type="radio" name="question8" value="Sì" required> Sì</label>
+                <label><input type="radio" name="question8" value="No"> No</label>
+            </div>
+            <div class="question">
+                <label>9. Durante i tuoi allenamenti, fai esercizi per i QUADRICIPITI in appoggio SU UNA GAMBA SOLA?</label>
+                <label><input type="radio" name="question9" value="Sì" required> Sì</label>
+                <label><input type="radio" name="question9" value="No"> No</label>
+            </div>
+            <div class="question">
+                <label>10. Durante i tuoi allenamenti, fai esercizi per i FEMORALI in appoggio SU UNA GAMBA SOLA?</label>
+                <label><input type="radio" name="question10" value="Sì" required> Sì</label>
+                <label><input type="radio" name="question10" value="No"> No</label>
+            </div>
+            <div class="question">
+                <label>11. Durante i tuoi allenamenti, fai esercizi per i POLPACCI in appoggio SU UNA GAMBA SOLA?</label>
+                <label><input type="radio" name="question11" value="Sì" required> Sì</label>
+                <label><input type="radio" name="question11" value="No"> No</label>
+            </div>
+            <div class="question">
+                <label>12. Durante i tuoi allenamenti, fai esercizi per ADDOME, GLUTEI e SCHIENA in isometria?</label>
+                <label><input type="radio" name="question12" value="Sì" required> Sì</label>
+                <label><input type="radio" name="question12" value="No"> No</label>
+            </div>
+            <div class="question">
+                <label>13. Tenendo le ginocchia stese, riesci a TOCCARTI LA PUNTA DEI PIEDI con le mani?</label>
+                <label><input type="radio" name="question13" value="Sì" required> Sì</label>
+                <label><input type="radio" name="question13" value="No"> No</label>
+            </div>
+            <div class="question">
+                <label>14. Durante i tuoi allenamenti, fai esercitazioni dedicate alla tecnica di SALTO ed ATTERRAGGIO su una gamba?</label>
+                <label><input type="radio" name="question14" value="Sì" required> Sì</label>
+                <label><input type="radio" name="question14" value="No"> No</label>
+            </div>
+            <div class="question">
+                <label>15. Durante i tuoi allenamenti, fai esercitazioni dedicate al miglioramento di SCATTI, ACCELERAZIONI e DECELERAZIONI?</label>
+                <label><input type="radio" name="question15" value="Sì" required> Sì</label>
+                <label><input type="radio" name="question15" value="No"> No</label>
+            </div>
+            <div class="question">
+                <label>16. Durante i tuoi allenamenti, fai esercitazioni dedicate allo sviluppo dell’EQUILIBRIO in appoggio su una gamba sola?</label>
+                <label><input type="radio" name="question16" value="Sì" required> Sì</label>
+                <label><input type="radio" name="question16" value="No"> No</label>
+            </div>
+            <div class="question">
+                <label>17. Durante la settimana, fai almeno 5 ALLENAMENTI (senza contare la partita)?</label>
+                <label><input type="radio" name="question17" value="Sì" required> Sì</label>
+                <label><input type="radio" name="question17" value="No"> No</label>
+            </div>
+            <button type="button" onclick="calculateResult()">Invia Risposte</button>
+        </form>
+        <div id="result">
+            <h2>Risultati del test</h2>
+            <p id="analysis"></p>
+        </div>
+    </div>
+    <script>
+        function calculateResult() {
+            const responses = [];
+            responses.push(document.getElementById('category').value);
+            responses.push(document.getElementById('role').value);
+            responses.push(document.getElementById('age').value);
+
+            for (let i = 4; i <= 17; i++) {
+                const answer = document.querySelector(`input[name="question${i}"]:checked`);
+                if (answer) {
+                    responses.push(answer.value);
+                } else {
+                    alert("Per favore, rispondi a tutte le domande!");
+                    return;
+                }
+            }
+
+            let riskFactors = 0;
+            let analysis = `<strong>Risultati del test:</strong><br>`;
+            responses.forEach((response, i) => {
+                analysis += `Domanda ${i + 1}: ${response}<br>`;
+                if (i >= 3 && i <= 16 && response === "Sì") riskFactors++;
+            });
+
+            const riskLevel = riskFactors > 6 ? "Alto" : riskFactors > 3 ? "Moderato" : "Basso";
+            analysis += `<br><strong>Rischio di infortunio: ${riskLevel}</strong>`;
+            document.getElementById('analysis').innerHTML = analysis;
+            document.getElementById('result').style.display = "block";
+        }
+    </script>
+</body>
+</html>

@@ -7,48 +7,50 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Test FIFA TM Calcio</h1>
-            <p>Rispondi alle domande per ottenere una valutazione del tuo stato fisico e rischio di infortunio.</p>
-        </header>
-        <form id="questionnaire">
-            <div class="question">
-                <label>1. In quale categoria di calcio giochi?</label>
-                <select id="category" required>
-                    <option value="Professionismo">Professionismo</option>
-                    <option value="Serie D">Serie D</option>
-                    <option value="Eccellenza">Eccellenza</option>
-                    <option value="Promozione">Promozione</option>
-                    <option value="Amatoriale">Amatoriale</option>
-                </select>
-            </div>
-            <!-- Domande successive -->
-            <!-- Sostituisci ogni domanda precedente con questo modello -->
-            <div class="question">
-                <label>2. Qual è il ruolo principale che ricopri in campo?</label>
-                <input type="text" id="role" placeholder="Es. Centrocampista Centrale" required>
-            </div>
-            <div class="question">
-                <label>3. Quanti anni hai?</label>
-                <select id="age" required>
-                    <option value="Meno di 20">Meno di 20</option>
-                    <option value="21-30">21-30</option>
-                    <option value="31-40">31-40</option>
-                    <option value="Più di 41">Più di 41</option>
-                </select>
-            </div>
-            <!-- Continua con il resto delle domande -->
-            <!-- Elimina la domanda numero 18 -->
-            <div class="button-container">
-                <button type="button" onclick="calculateResult()">Invia Risposte</button>
-            </div>
-        </form>
-        <div id="result" class="hidden">
-            <h2>Risultato</h2>
-            <p id="analysis"></p>
+    <h1>Test FIFA TM Calcio</h1>
+    <p>Rispondi semplicemente <strong>SÌ</strong> o <strong>NO</strong> alle domande sottostanti per avere una valutazione precisa del tuo stato fisico e del rischio di infortunio.</p>
+
+    <form id="fifaForm">
+        <!-- Domande -->
+        <div>
+            <label>1. In quale categoria di calcio giochi?</label>
+            <select id="category">
+                <option value="Professionismo">Professionismo (Serie A, Serie B, Lega Pro)</option>
+                <option value="Serie D">Serie D</option>
+                <option value="Eccellenza">Eccellenza</option>
+                <option value="Promozione">Promozione</option>
+                <option value="Amatoriale">Amatoriale</option>
+            </select>
         </div>
+
+        <div>
+            <label>2. Qual è il ruolo principale che ricopri in campo?</label>
+            <input type="text" id="role" placeholder="Es. Centrocampista Centrale">
+        </div>
+
+        <div>
+            <label>3. Quanti anni hai?</label>
+            <select id="age">
+                <option value="41+">Più di 41</option>
+                <option value="31-40">31-40</option>
+                <option value="21-30">21-30</option>
+                <option value="20-">Meno di 20</option>
+            </select>
+        </div>
+
+        <!-- Iterazione per le altre domande -->
+        <div id="questions">
+            <!-- Domande da 4 a 18 -->
+        </div>
+
+        <button type="button" id="submitBtn">Invia Risposte</button>
+    </form>
+
+    <div id="results" style="display: none;">
+        <h2>Risultato</h2>
+        <p id="resultsContent"></p>
     </div>
-    <script src="script.js"></script>
+
+    <script src="script.js" defer></script>
 </body>
 </html>
